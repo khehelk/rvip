@@ -4,7 +4,6 @@ services:
 
   postgres:
     image: postgres:16
-    container_name: postgres
     ports:
       - "5432:5432"
     environment:
@@ -14,7 +13,6 @@ services:
 
   main-service:
     image: rviplabs-main-service
-    container_name: main-service
     build:
       context: ../
       dockerfile: main-service/Dockerfile

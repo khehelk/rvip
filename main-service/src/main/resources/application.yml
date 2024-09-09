@@ -6,12 +6,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
-    database: postgresql
+    show-sql: true
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://${JDBC_URL}
     username: ${JDBC_USERNAME}
     password: ${JDBC_PASSWORD}
   liquibase:
-    change-log: classpath:/db/changelog/master.yml
-    enabled: true
+    change-log: db/changelog/master.yml
