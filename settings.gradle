@@ -1,0 +1,5 @@
+rootProject.name = 'rviplabs'
+
+include('gateway',
+        'main-service',
+        'report-service')

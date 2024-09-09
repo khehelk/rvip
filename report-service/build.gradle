@@ -1,0 +1,12 @@
+group = 'ru.khehelk.rviplabs.reportservice'
+version = '0.0.1-SNAPSHOT'
+
+springBoot {
+    mainClass = 'ru.khehelk.rviplabs.reportservice.app.ReportServiceApplication'
+    buildInfo()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

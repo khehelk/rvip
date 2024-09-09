@@ -1,0 +1,27 @@
+version: "3.8"
+name: rviplabs
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: main-service-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  main-service:
+    image: rviplabs-main-service
+    container_name: main-service
+    build:
+      context: ../
+      dockerfile: main-service/Dockerfile
+    environment:
+      - JDBC_PASSWORD=postgres
+      - JDBC_URL=postgres:5432/main-service-db
+      - JDBC_USERNAME=postgres
+      - SERVER_PORT=8081
+    depends_on:
+      - postgres

@@ -1,0 +1,17 @@
+server:
+  port: ${SERVER_PORT}
+spring:
+  application:
+    name: main-service
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: postgresql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${JDBC_URL}
+    username: ${JDBC_USERNAME}
+    password: ${JDBC_PASSWORD}
+  liquibase:
+    change-log: classpath:/db/changelog/master.yml
+    enabled: true
