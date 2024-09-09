@@ -23,26 +23,11 @@
             <column name="surname" type="varchar" remarks="Имя работника">
                 <constraints nullable="false"/>
             </column>
+            <column name="qualification" type="varchar(128)" remarks="Данные о повышении квалификации"/>
             <column name="is_active" type="bool" defaultValue="true" remarks="Флаг уволен/работает">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <createTable tableName="qualification" remarks="Данные о повышении квалификации">
-            <column name="id" autoIncrement="true" type="bigint" remarks="Идентификатор квалификации или курса">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="employee_id" type="bigint" remarks="Идентификатор работника">
-                <constraints nullable="false"/>
-            </column>
-            <column name="qualification_name" type="varchar" remarks="Название квалификации или курса">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-        <addForeignKeyConstraint baseTableName="qualification"
-                                 baseColumnNames="employee_id"
-                                 constraintName="fk_qualification_employee"
-                                 referencedTableName="employee"
-                                 referencedColumnNames="id" />
         <createIndex tableName="employee" indexName="idx_employee_is_active">
             <column name="is_active"/>
         </createIndex>

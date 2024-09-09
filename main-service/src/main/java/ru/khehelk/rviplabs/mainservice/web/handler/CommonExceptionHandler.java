@@ -6,8 +6,8 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.core.AuthenticationException;
+/*import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.AuthenticationException;*/
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -36,7 +36,7 @@ public class CommonExceptionHandler {
         return handleException(HttpStatus.INTERNAL_SERVER_ERROR, request, ex);
     }
 
-    @ExceptionHandler(AccessDeniedException.class)
+    /*@ExceptionHandler(AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ResponseEntity<ErrorResponse> handleForbiddenException(Exception ex,
                                                                   HttpServletRequest request) {
@@ -48,7 +48,7 @@ public class CommonExceptionHandler {
     public ResponseEntity<ErrorResponse> handleUnauthorizedException(Exception ex,
                                                                      HttpServletRequest request) {
         return handleException(HttpStatus.UNAUTHORIZED, request, ex);
-    }
+    }*/
 
     private ResponseEntity<ErrorResponse> handleException(HttpStatus status, HttpServletRequest request, Exception ex) {
         var errorResponse = new ErrorResponse(

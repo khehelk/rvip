@@ -1,10 +1,15 @@
 package ru.khehelk.rviplabs.mainservice.domain;
 
+import java.util.List;
+
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -19,8 +24,7 @@ import lombok.ToString;
 public class EmployeeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator", sequenceName = "hibernate_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name", nullable = false)
@@ -29,6 +33,14 @@ public class EmployeeEntity {
     @Column(name = "surname", nullable = false)
     private String surname;
 
+    @Column(name = "qualification")
+    private String qualification;
+
     @Column(name = "is_active", nullable = false)
     private Boolean isActive;
+
+    @PrePersist
+    protected void onCreate() {
+        isActive = true;
+    }
 }

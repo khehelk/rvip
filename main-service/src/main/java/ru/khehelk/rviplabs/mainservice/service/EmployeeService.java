@@ -1,5 +1,7 @@
 package ru.khehelk.rviplabs.mainservice.service;
 
+import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,14 +39,22 @@ public class EmployeeService {
         return mapper.toDto(savedEmployee);
     }
 
-    @Transactional(readOnly = true)
-    protected EmployeeEntity get(Long id) {
-        return employeeRepository.getReferenceById(id);
+    @Transactional
+    public EmployeeDto addQualifications(Long id, String qualification) {
+        var employee = employeeRepository.getReferenceById(id);
+        employee.setQualification(qualification);
+        return mapper.toDto(employeeRepository.save(employee));
     }
 
     private void throwIfNotExists(Long id) {
         if (!employeeRepository.existsById(id)) {
             throw new IllegalArgumentException(String.format("Employee with id=%s not found", id));
         }
+    }
+
+    @Transactional(readOnly = true)
+    public List<EmployeeDto> getAll() {
+        return employeeRepository.findAll().stream()
+                                 .map(mapper::toDto).toList();
     }
 }

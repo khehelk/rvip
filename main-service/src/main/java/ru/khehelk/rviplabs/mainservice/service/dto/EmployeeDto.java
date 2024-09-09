@@ -4,5 +4,6 @@ public record EmployeeDto(
     Long id,
     String name,
     String surname,
+    String qualification,
     boolean isActive
 ) {}

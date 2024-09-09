@@ -8,7 +8,7 @@
       <env name="JDBC_PASSWORD" value="postgres" />
     </envs>
     <module name="rviplabs.main-service.main" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="ru.khehelk.rviplabs.mainservice.app.MainServiceApplication" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ru.khehelk.rviplabs.mainservice.MainServiceApplication" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
