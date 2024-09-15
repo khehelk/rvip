@@ -1,0 +1,39 @@
+server:
+  port: ${SERVER_PORT}
+  forward-headers-strategy: framework
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: main-service-route
+          uri: ${MAIN_SERVICE_SERVER_URL}
+          predicates:
+            - Path=/main-service/**
+          filters:
+            - RewritePath=/main-service/(?<remaining>.*), /${remaining}
+        - id: report-service
+          uri: ${REPORT_SERVICE_SERVER_URL}
+          predicates:
+            - Path=/report-service/**
+          filters:
+            - RewritePath=/report-service/(?<remaining>.*), /${remaining}
+      default-filters:
+        - AddRequestHeader=X-Gateway, Gateway
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - name: gateway-service
+        url: /v3/api-docs
+      - name: main-service
+        url: /main-service/v3/api-docs
+      - name: report-service
+        url: /report-service/v3/api-docs
+    path: /swagger-ui/index.html

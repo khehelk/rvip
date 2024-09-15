@@ -17,9 +17,37 @@ services:
       context: ../
       dockerfile: main-service/Dockerfile
     environment:
-      - JDBC_PASSWORD=postgres
-      - JDBC_URL=postgres:5432/main-service-db
-      - JDBC_USERNAME=postgres
-      - SERVER_PORT=8081
+      JDBC_PASSWORD: ${MAIN_SERVICE_JDBC_PASSWORD}
+      JDBC_URL: ${MAIN_SERVICE_JDBC_URL}
+      JDBC_USERNAME: ${MAIN_SERVICE_JDBC_USERNAME}
+      SERVER_PORT: ${MAIN_SERVICE_SERVER_PORT}
     depends_on:
       - postgres
+
+  report-service:
+    image: rviplabs-report-service
+    build:
+      context: ../
+      dockerfile: report-service/Dockerfile
+    environment:
+      JDBC_PASSWORD: ${REPORT_SERVICE_JDBC_PASSWORD}
+      JDBC_URL: ${REPORT_SERVICE_JDBC_URL}
+      JDBC_USERNAME: ${REPORT_SERVICE_JDBC_USERNAME}
+      SERVER_PORT: ${REPORT_SERVICE_SERVER_PORT}
+    depends_on:
+      - postgres
+
+  gateway:
+    image: rviplabs-gateway
+    ports:
+      - "${GATEWAY_SERVER_PORT}:${GATEWAY_SERVER_PORT}"
+    build:
+      context: ../
+      dockerfile: gateway/Dockerfile
+    environment:
+      MAIN_SERVICE_SERVER_URL: http://main-service:${MAIN_SERVICE_SERVER_PORT}
+      REPORT_SERVICE_SERVER_URL: http://report-service:${REPORT_SERVICE_SERVER_PORT}
+      SERVER_PORT: ${GATEWAY_SERVER_PORT}
+    depends_on:
+      - main-service
+      - report-service

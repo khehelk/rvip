@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,36 +19,36 @@ import ru.khehelk.rviplabs.mainservice.service.dto.EmployeeCreateDto;
 import ru.khehelk.rviplabs.mainservice.service.dto.EmployeeDto;
 
 @RestController
-@RequestMapping("api/v1/employee")
+@RequestMapping("api/v1/employees")
 @RequiredArgsConstructor
 public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<EmployeeDto> create(
         @RequestBody EmployeeCreateDto employeeDto) {
         return ResponseEntity.status(HttpStatus.CREATED)
                              .body(employeeService.create(employeeDto));
     }
 
-    @PutMapping("/update")
+    @PutMapping
     public ResponseEntity<EmployeeDto> update(
         @RequestBody EmployeeDto employeeDto) {
         return ResponseEntity.status(HttpStatus.OK)
                              .body(employeeService.update(employeeDto));
     }
 
-    @PatchMapping("/fire")
+    @PatchMapping("/{id}/fire")
     public ResponseEntity<EmployeeDto> fire(
-        @RequestParam(name = "id") Long id) {
+        @PathVariable(name = "id") Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                              .body(employeeService.fire(id));
     }
 
-    @PatchMapping("/add-qualification")
+    @PatchMapping("/{id}/add-qualification")
     public ResponseEntity<EmployeeDto> addQualification(
-        @RequestParam(name = "id") Long id,
+        @PathVariable(name = "id") Long id,
         @RequestParam(name = "qualification") String qualification) {
         return ResponseEntity.status(HttpStatus.OK)
                              .body(employeeService.addQualifications(id, qualification));
@@ -56,6 +57,6 @@ public class EmployeeController {
     @GetMapping
     public ResponseEntity<List<EmployeeDto>> getAll() {
         return ResponseEntity.status(HttpStatus.OK)
-                             .body(employeeService.getAll());
+                             .body(employeeService.getAllSortedById());
     }
 }

@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="Gateway [local]" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+        <option name="ACTIVE_PROFILES" value="dev" />
+        <envs>
+            <env name="SERVER_PORT" value="8083" />
+            <env name="MAIN_SERVICE_SERVER_PORT" value="8081" />
+            <env name="REPORT_SERVICE_SERVER_PORT" value="8082" />
+        </envs>
+        <module name="rviplabs.gateway.main" />
+        <option name="SPRING_BOOT_MAIN_CLASS" value="ru.khehelk.rviplabs.gateway.app.GatewayApplication" />
+        <method v="2">
+            <option name="Make" enabled="true" />
+        </method>
+    </configuration>
+</component>

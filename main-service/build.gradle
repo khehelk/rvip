@@ -2,7 +2,7 @@ group = 'ru.khehelk.rviplabs.mainservice'
 version = '0.0.1-SNAPSHOT'
 
 springBoot {
-    mainClass = 'ru.khehelk.rviplabs.mainservice.app.MainServiceApplication'
+    mainClass = 'ru.khehelk.rviplabs.mainservice.MainServiceApplication'
     buildInfo()
 }
 

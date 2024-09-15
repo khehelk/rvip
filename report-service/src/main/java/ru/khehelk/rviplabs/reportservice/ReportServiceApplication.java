@@ -1,4 +1,4 @@
-package ru.khehelk.rviplabs.reportservice.app;
+package ru.khehelk.rviplabs.reportservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

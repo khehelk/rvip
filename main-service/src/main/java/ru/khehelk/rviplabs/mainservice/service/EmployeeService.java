@@ -1,5 +1,6 @@
 package ru.khehelk.rviplabs.mainservice.service;
 
+import java.util.Comparator;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
@@ -53,8 +54,9 @@ public class EmployeeService {
     }
 
     @Transactional(readOnly = true)
-    public List<EmployeeDto> getAll() {
+    public List<EmployeeDto> getAllSortedById() {
         return employeeRepository.findAll().stream()
+                                 .sorted(Comparator.comparing(EmployeeEntity::getId))
                                  .map(mapper::toDto).toList();
     }
 }
