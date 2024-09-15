@@ -7,7 +7,7 @@ group = 'ru.khehelk.rviplabs'
 version = '0.0.1-SNAPSHOT'
 
 subprojects {
-    def libraries = []
+    def libraries = ['common']
 
     apply plugin: 'io.spring.dependency-management'
 

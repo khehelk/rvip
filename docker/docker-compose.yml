@@ -45,8 +45,8 @@ services:
       context: ../
       dockerfile: gateway/Dockerfile
     environment:
-      MAIN_SERVICE_SERVER_URL: http://main-service:${MAIN_SERVICE_SERVER_PORT}
-      REPORT_SERVICE_SERVER_URL: http://report-service:${REPORT_SERVICE_SERVER_PORT}
+      MAIN_SERVICE_SERVER_URL: ${MAIN_SERVICE_SERVER_URL}
+      REPORT_SERVICE_SERVER_URL: ${REPORT_SERVICE_SERVER_URL}
       SERVER_PORT: ${GATEWAY_SERVER_PORT}
     depends_on:
       - main-service

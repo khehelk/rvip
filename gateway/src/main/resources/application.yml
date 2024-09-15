@@ -13,12 +13,6 @@ spring:
             - Path=/main-service/**
           filters:
             - RewritePath=/main-service/(?<remaining>.*), /${remaining}
-        - id: report-service
-          uri: ${REPORT_SERVICE_SERVER_URL}
-          predicates:
-            - Path=/report-service/**
-          filters:
-            - RewritePath=/report-service/(?<remaining>.*), /${remaining}
       default-filters:
         - AddRequestHeader=X-Gateway, Gateway
 

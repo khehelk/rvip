@@ -2,10 +2,11 @@
   <configuration default="false" name="MainService [local]" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="ACTIVE_PROFILES" value="dev" />
     <envs>
-      <env name="SERVER_PORT" value="8081" />
+      <env name="JDBC_PASSWORD" value="postgres" />
       <env name="JDBC_URL" value="localhost:5432/main-service-db" />
       <env name="JDBC_USERNAME" value="postgres" />
-      <env name="JDBC_PASSWORD" value="postgres" />
+      <env name="REPORT_SERVICE_SERVER_URL" value="http://localhost:8082" />
+      <env name="SERVER_PORT" value="8081" />
     </envs>
     <module name="rviplabs.main-service.main" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="ru.khehelk.rviplabs.mainservice.MainServiceApplication" />

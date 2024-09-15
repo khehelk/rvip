@@ -1,12 +1,10 @@
 package ru.khehelk.rviplabs.reportservice.service;
 
-import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.khehelk.rviplabs.common.dto.ReportDto;
 import ru.khehelk.rviplabs.reportservice.repository.ReportRepository;
-import ru.khehelk.rviplabs.reportservice.service.dto.ReportDto;
 import ru.khehelk.rviplabs.reportservice.service.mapper.EmployeeMapper;
 
 @Service

@@ -14,3 +14,7 @@ spring:
     password: ${JDBC_PASSWORD}
   liquibase:
     change-log: db/changelog/master.yml
+
+application:
+  report-service:
+    url: ${REPORT_SERVICE_SERVER_URL}
