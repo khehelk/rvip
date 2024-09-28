@@ -2,7 +2,7 @@ group = 'ru.khehelk.rviplabs.gateway'
 version = '0.0.1-SNAPSHOT'
 
 springBoot {
-    mainClass = 'ru.khehelk.rviplabs.gateway.app.GatewayApplication'
+    mainClass = 'ru.khehelk.rviplabs.gateway.GatewayApplication'
     buildInfo()
 }
 

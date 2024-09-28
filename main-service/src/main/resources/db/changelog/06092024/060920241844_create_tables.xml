@@ -9,9 +9,6 @@
             <not>
                 <tableExists tableName="employee"/>
             </not>
-            <not>
-                <tableExists tableName="qualification"/>
-            </not>
         </preConditions>
         <createTable tableName="employee" remarks="Работники ветклиники">
             <column name="id" autoIncrement="true" type="bigint" remarks="Идентификатор работника ветклиники">

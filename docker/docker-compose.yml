@@ -13,6 +13,8 @@ services:
 
   main-service:
     image: rviplabs-main-service
+    ports:
+      - "${MAIN_SERVICE_SERVER_PORT}:${MAIN_SERVICE_SERVER_PORT}"
     build:
       context: ../
       dockerfile: main-service/Dockerfile
@@ -21,11 +23,14 @@ services:
       JDBC_URL: ${MAIN_SERVICE_JDBC_URL}
       JDBC_USERNAME: ${MAIN_SERVICE_JDBC_USERNAME}
       SERVER_PORT: ${MAIN_SERVICE_SERVER_PORT}
+      GATEWAY_URL: http://localhost:${GATEWAY_SERVER_PORT}
     depends_on:
       - postgres
 
   report-service:
     image: rviplabs-report-service
+    ports:
+      - "${REPORT_SERVICE_SERVER_PORT}:${REPORT_SERVICE_SERVER_PORT}"
     build:
       context: ../
       dockerfile: report-service/Dockerfile
@@ -34,6 +39,7 @@ services:
       JDBC_URL: ${REPORT_SERVICE_JDBC_URL}
       JDBC_USERNAME: ${REPORT_SERVICE_JDBC_USERNAME}
       SERVER_PORT: ${REPORT_SERVICE_SERVER_PORT}
+      GATEWAY_URL: http://localhost:${GATEWAY_SERVER_PORT}
     depends_on:
       - postgres
 
