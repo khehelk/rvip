@@ -13,8 +13,6 @@ services:
 
   main-service:
     image: rviplabs-main-service
-    ports:
-      - "${MAIN_SERVICE_SERVER_PORT}:${MAIN_SERVICE_SERVER_PORT}"
     build:
       context: ../
       dockerfile: main-service/Dockerfile
@@ -29,8 +27,6 @@ services:
 
   report-service:
     image: rviplabs-report-service
-    ports:
-      - "${REPORT_SERVICE_SERVER_PORT}:${REPORT_SERVICE_SERVER_PORT}"
     build:
       context: ../
       dockerfile: report-service/Dockerfile
