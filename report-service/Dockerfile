@@ -1,5 +1,7 @@
 FROM gradle:8.8-alpine AS builder
 
+VOLUME /home/gradle/.gradle
+
 WORKDIR /app
 
 COPY gradle /app/gradle
@@ -8,6 +10,7 @@ COPY build.gradle /app/build.gradle
 COPY settings.gradle /app/settings.gradle
 
 COPY common /app/common
+COPY gateway-config /app/gateway-config
 COPY report-service /app/report-service
 
 RUN chmod +x ./gradlew
