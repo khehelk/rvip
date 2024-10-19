@@ -16,5 +16,7 @@ spring:
     change-log: db/changelog/master.yml
 
 application:
+  gateway:
+    url: ${GATEWAY_SERVER_URL}
   report-service:
     url: ${REPORT_SERVICE_SERVER_URL}

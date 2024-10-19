@@ -12,3 +12,7 @@ spring:
     url: jdbc:postgresql://${JDBC_URL}
     username: ${JDBC_USERNAME}
     password: ${JDBC_PASSWORD}
+
+application:
+  gateway:
+    url: ${GATEWAY_SERVER_URL}

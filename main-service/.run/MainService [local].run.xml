@@ -6,6 +6,7 @@
       <env name="JDBC_URL" value="localhost:5432/main-service-db" />
       <env name="JDBC_USERNAME" value="postgres" />
       <env name="REPORT_SERVICE_SERVER_URL" value="http://localhost:8082" />
+      <env name="GATEWAY_SERVER_URL" value="http://localhost:8083" />
       <env name="SERVER_PORT" value="8081" />
     </envs>
     <module name="rviplabs.main-service.main" />

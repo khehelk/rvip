@@ -27,7 +27,5 @@ springdoc:
       - name: gateway-service
         url: /v3/api-docs
       - name: main-service
-        url: /main-service/v3/api-docs
-      - name: report-service
-        url: /report-service/v3/api-docs
+        url: http://localhost:${SERVER_PORT}/main-service/v3/api-docs
     path: /swagger-ui/index.html

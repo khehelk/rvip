@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 import ru.khehelk.rviplabs.mainservice.config.properties.ReportServiceProperties;
 
 @Configuration
-@EnableConfigurationProperties(ReportServiceProperties.class)
 public class RestTemplateConfig {
 
     @Bean
