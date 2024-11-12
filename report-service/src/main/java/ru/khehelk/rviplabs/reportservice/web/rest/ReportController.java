@@ -1,6 +1,7 @@
 package ru.khehelk.rviplabs.reportservice.web.rest;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.khehelk.rviplabs.common.dto.ReportDto;
 import ru.khehelk.rviplabs.reportservice.service.ReportService;
 
+@Slf4j
 @RestController
 @RequestMapping("api/v1/reports")
 @RequiredArgsConstructor
@@ -19,8 +21,11 @@ public class ReportController {
 
     @GetMapping
     public ResponseEntity<ReportDto> getReport(@RequestParam("isActive") boolean isActive) {
-        return ResponseEntity.status(HttpStatus.OK)
+        log.info("Запрос на получение отчета из базы по isActive: {}", isActive);
+        var response = ResponseEntity.status(HttpStatus.OK)
                              .body(reportService.getEmployeeReport(isActive));
+        log.info("Отчет успешно получен");
+        return response;
     }
 
 }

@@ -8,6 +8,7 @@
       <env name="REPORT_SERVICE_SERVER_URL" value="http://localhost:8082" />
       <env name="GATEWAY_SERVER_URL" value="http://localhost:8083" />
       <env name="SERVER_PORT" value="8081" />
+      <env name="FILE_SERVICE_SERVER_URL" value="http://localhost:8084" />
     </envs>
     <module name="rviplabs.main-service.main" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="ru.khehelk.rviplabs.mainservice.MainServiceApplication" />

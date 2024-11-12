@@ -15,6 +15,9 @@ COPY report-service /app/report-service
 
 RUN chmod +x ./gradlew
 
+COPY common /app/common
+COPY gateway-config /app/gateway-config
+COPY log-config /app/log-config
 RUN ./gradlew clean :report-service:build -x test
 
 FROM openjdk:21-jdk-slim

@@ -9,6 +9,7 @@ COPY settings.gradle /app/settings.gradle
 
 COPY common /app/common
 COPY gateway-config /app/gateway-config
+COPY log-config /app/log-config
 COPY main-service /app/main-service
 
 RUN chmod +x ./gradlew

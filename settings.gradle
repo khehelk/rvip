@@ -4,5 +4,7 @@ include('gateway',
         'gateway-config',
         'main-service',
         'report-service',
-        'common')
+        'common',
+        'file-service',
+        'log-config')
 

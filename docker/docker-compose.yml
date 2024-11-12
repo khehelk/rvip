@@ -23,6 +23,7 @@ services:
       SERVER_PORT: ${MAIN_SERVICE_SERVER_PORT}
       REPORT_SERVICE_SERVER_URL: ${REPORT_SERVICE_SERVER_URL}
       GATEWAY_SERVER_URL: ${GATEWAY_SERVER_EXTERNAL_URL}
+      FILE_SERVICE_SERVER_URL: ${FILE_SERVICE_SERVER_URL}
     depends_on:
       - postgres
 
@@ -54,3 +55,30 @@ services:
     depends_on:
       - main-service
       - report-service
+
+  file-service:
+    image: rviplabs-file
+    ports:
+      - "${FILE_SERVICE_SERVER_PORT}:${FILE_SERVICE_SERVER_PORT}"
+    build:
+      context: ../
+      dockerfile: file-service/Dockerfile
+    environment:
+      SERVER_PORT: ${FILE_SERVICE_SERVER_PORT}
+      MINIO_URL: ${MINIO_URL}
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - ./data/minio:/data
+      - ./config/minio:/root/.minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    command: server /data --console-address ":9001"

@@ -1,0 +1,17 @@
+group = 'ru.khehelk.rviplabs.fileservice'
+version = '0.0.1-SNAPSHOT'
+
+springBoot {
+    mainClass = 'ru.khehelk.rviplabs.fileservice.FileServiceApplication'
+    buildInfo()
+}
+
+dependencies {
+    implementation project(':common')
+    implementation project(':gateway-config')
+    implementation project(':log-config')
+    implementation 'net.logstash.logback:logstash-logback-encoder:7.3'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation "io.minio:minio:${minio_version}"
+    implementation "com.opencsv:opencsv:${opencsv_version}"
+}

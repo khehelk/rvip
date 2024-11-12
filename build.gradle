@@ -46,6 +46,8 @@ subprojects {
         set('spring_cloud_version', '2023.0.3')
         set('mapstruct_version', '1.6.0')
         set('springdoc_version', '2.6.0')
+        set('minio_version', '8.5.12')
+        set('opencsv_version', '5.9')
     }
 
     dependencyManagement {

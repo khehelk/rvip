@@ -6,7 +6,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
-    show-sql: true
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://${JDBC_URL}
@@ -20,3 +19,5 @@ application:
     url: ${GATEWAY_SERVER_URL}
   report-service:
     url: ${REPORT_SERVICE_SERVER_URL}
+  file-service:
+    url: ${FILE_SERVICE_SERVER_URL}
