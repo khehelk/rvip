@@ -6,6 +6,7 @@
       <env name="MINIO_URL" value="http://localhost:9000" />
       <env name="MINIO_ACCESS_KEY" value="ZF6c5IjneUF2O0l0acYb" />
       <env name="MINIO_SECRET_KEY" value="LGD2LODfvfEw8jh5FpYT1KOQcC5TSgLEstwQFeAB" />
+      <env name="KAFKA_BOOTSTRAP_SERVER" value="localhost:9092" />
     </envs>
     <module name="rviplabs.file-service.main" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="ru.khehelk.rviplabs.fileservice.FileServiceApplication" />

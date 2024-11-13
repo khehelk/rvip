@@ -19,7 +19,6 @@ public class ReportService {
     public ReportDto getEmployeeReport(boolean isActive) {
         var employees = reportRepository.findByIsActive(isActive);
         return new ReportDto(
-            null,
             employees.stream().map(employeeMapper::toDto).toList()
         );
     }

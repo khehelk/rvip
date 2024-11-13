@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.UUID;
 
 import com.opencsv.CSVWriter;
 import io.minio.BucketExistsArgs;
@@ -22,11 +21,9 @@ import io.minio.errors.XmlParserException;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.MDC;
 import org.springframework.stereotype.Service;
 import ru.khehelk.rviplabs.common.dto.ReportDto;
 import ru.khehelk.rviplabs.fileservice.config.properties.MinioProperties;
-import ru.khehelk.rviplabs.gatewayconfig.filter.TraceIdFilter;
 
 @Slf4j
 @Service
@@ -49,7 +46,8 @@ public class FileService {
         }
     }
 
-    public String save(ReportDto reportDto)
+    public String save(String messageId,
+                       ReportDto reportDto)
         throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException,
         InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         log.info("Попытка сохранить файл отчета");
@@ -73,7 +71,7 @@ public class FileService {
         byte[] csvData = writer.toString().getBytes();
         InputStream inputStream = new ByteArrayInputStream(csvData);
 
-        String fileName = "report_list_" + MDC.get(TraceIdFilter.TRACE_ID_KEY) + ".csv";
+        String fileName = "report_list_" + messageId + ".csv";
         minioClient.putObject(
             PutObjectArgs.builder()
                 .bucket(minioProperties.bucket())

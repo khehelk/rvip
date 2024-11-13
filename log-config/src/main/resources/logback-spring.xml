@@ -1,10 +1,15 @@
 <configuration>
 
+    <springProperty name="APP_NAME" source="spring.application.name"/>
+
+    <property name="LOG_FILE" value="_logs/${APP_NAME}.log"/>
+    <property name="ROLLING_FILE_PATTERN" value="_logs/${APP_NAME}.%d{yyyy-MM-dd}.log"/>
+
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>_logs/myapp.log</file>
+        <file>${LOG_FILE}</file>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>_logs/myapp.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${ROLLING_FILE_PATTERN}</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
 

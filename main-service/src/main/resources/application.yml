@@ -11,9 +11,13 @@ spring:
     url: jdbc:postgresql://${JDBC_URL}
     username: ${JDBC_USERNAME}
     password: ${JDBC_PASSWORD}
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVER:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   liquibase:
     change-log: db/changelog/master.yml
-
 application:
   gateway:
     url: ${GATEWAY_SERVER_URL}
@@ -21,3 +25,7 @@ application:
     url: ${REPORT_SERVICE_SERVER_URL}
   file-service:
     url: ${FILE_SERVICE_SERVER_URL}
+kafka:
+  topic-name: mainServiceToFileService
+  topic-partitions: 5
+  bootstrapServers: ${KAFKA_BOOTSTRAP_SERVER:localhost:9092}

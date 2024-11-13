@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ReportDto {
 
-    private String linkToReportCsvFile;
+    //private String linkToReportCsvFile;
 
     private List<EmployeeReportDto> employees;
 

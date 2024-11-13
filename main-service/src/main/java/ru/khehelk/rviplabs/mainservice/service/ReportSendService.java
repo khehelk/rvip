@@ -1,7 +1,5 @@
 package ru.khehelk.rviplabs.mainservice.service;
 
-import java.util.UUID;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
@@ -10,11 +8,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 import ru.khehelk.rviplabs.common.dto.ReportDto;
 import ru.khehelk.rviplabs.gatewayconfig.filter.TraceIdFilter;
 import ru.khehelk.rviplabs.mainservice.config.properties.FileServiceProperties;
-import ru.khehelk.rviplabs.mainservice.config.properties.ReportServiceProperties;
 
 @Slf4j
 @Service

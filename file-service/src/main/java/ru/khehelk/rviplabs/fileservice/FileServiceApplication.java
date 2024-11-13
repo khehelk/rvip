@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {
     "ru.khehelk.rviplabs.fileservice",
-    "ru.khehelk.rviplabs.gatewayconfig"
+    "ru.khehelk.rviplabs.gatewayconfig",
 })
 public class FileServiceApplication {
 

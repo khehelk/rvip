@@ -2,7 +2,6 @@ package ru.khehelk.rviplabs.mainservice.web.rest;
 
 import java.util.List;
 
-import io.swagger.v3.oas.annotations.headers.Header;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;

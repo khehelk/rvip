@@ -7,9 +7,11 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {
     "ru.khehelk.rviplabs.mainservice",
-    "ru.khehelk.rviplabs.gatewayconfig"
+    "ru.khehelk.rviplabs.gatewayconfig",
 })
 public class MainServiceApplication {
+
+
 
     public static void main(String[] args) {
         SpringApplication.run(MainServiceApplication.class, args);

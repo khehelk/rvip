@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.khehelk.rviplabs.common.dto.ReportDto;
 import ru.khehelk.rviplabs.mainservice.service.ReportProcessingService;
-import ru.khehelk.rviplabs.mainservice.service.ReportRequestService;
 
 @Slf4j
 @RestController
